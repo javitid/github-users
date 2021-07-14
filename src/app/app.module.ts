@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { UserComponent } from './user/user.component';
 import { OverviewComponent } from './overview/overview.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { OverviewComponent } from './overview/overview.component';
     HeaderComponent,
     SearchBarComponent,
     UserComponent,
-    OverviewComponent
+    OverviewComponent,
+    DetailsComponent
   ],
   imports: [
     AppRoutingModule,
