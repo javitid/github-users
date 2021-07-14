@@ -1,0 +1,35 @@
+$icon-size: 80px;
+
+.user {
+    border: 1px solid cyan;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    transition: box-shadow .3s;
+
+    &:hover {
+        box-shadow: 0 0 11px rgba(33,33,33,.2);
+    }
+}
+
+.icon {
+    height: $icon-size;
+    width: $icon-size;
+}
+
+.user-icon,
+.user-login {
+    align-self: center;
+    width: 100%;
+}
+
+.user-icon {
+    width: $icon-size;
+}
+
+.user-login {
+    flex: 3;
+    padding-left: 10px;
+}

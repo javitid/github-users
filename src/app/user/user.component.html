@@ -1,0 +1,4 @@
+<div *ngIf="user" class="user" (click)="goToDetails(user)">
+    <div class="user-icon"><img src="{{user.avatar_url}}" alt="Avatar" class="icon"></div>
+    <div class="user-login">{{user.login}}</div>
+</div>
