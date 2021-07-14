@@ -18,8 +18,7 @@ export class SearchBarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.dataService.getUsers().subscribe(users => {
-      this.users = users;
-    });
+    // TODO: use dataService to retrieve users and to update the list
+    console.log(this.dataService);
   }
 }

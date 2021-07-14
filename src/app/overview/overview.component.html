@@ -1,0 +1,9 @@
+<app-header></app-header>
+
+<h2>Search user: </h2>
+<app-search-bar class="search-block"></app-search-bar>
+
+<h2>List of users: </h2>
+<div *ngFor="let user of users"> 
+    <app-user [user]="user"></app-user>
+</div>

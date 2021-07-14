@@ -2,8 +2,3 @@
     <label for="search">User name: </label>
     <input id="search" type="text" [formControl]="search">
 </div>
-
-<h2>List of users: </h2>
-<div *ngFor="let user of users"> 
-    <app-user [user]="user"></app-user>
-</div>

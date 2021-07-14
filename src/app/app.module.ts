@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { UserComponent } from './user/user.component';
+import { OverviewComponent } from './overview/overview.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SearchBarComponent,
-    UserComponent
+    UserComponent,
+    OverviewComponent
   ],
   imports: [
     AppRoutingModule,
