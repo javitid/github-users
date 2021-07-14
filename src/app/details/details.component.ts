@@ -16,7 +16,14 @@ export class DetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.user = this._dataService.getSelectedUser();
-  }
+    const userLogin = this._dataService.getSelectedUser()?.login;
 
+    // TODO: Add spinner
+
+    // TODO: Retrieve list of user's repositories and followers
+    this._dataService.getUserDetails(userLogin).subscribe(userDetails => {
+      this.user = userDetails;
+    })
+    ;
+  }
 }

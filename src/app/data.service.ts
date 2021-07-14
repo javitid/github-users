@@ -19,8 +19,16 @@ export class DataService {
   }
 
   //TODO: Add cache by login to avoid extra requests to retrieve data of the same user
-  getUserDetails(user: User): Observable<User[]>{
-    return this.http.get<User[]>(this.getUsersUrl + "/" + user.login);
+  getUserDetails(userLogin?: string): Observable<User>{
+    return this.http.get<User>(this.getUsersUrl + '/' + userLogin);
+  }
+
+  getUserRepositories(userLogin?: string): Observable<User>{
+    return this.http.get<User>(this.getUsersUrl + '/'  + userLogin + '/repos');
+  }
+
+  getUserFollowers(userLogin?: string): Observable<User>{
+    return this.http.get<User>(this.getUsersUrl + '/'  + userLogin + '/followers');
   }
 
   getSelectedUser(): User|undefined {
