@@ -5,4 +5,18 @@
     <div>{{user.node_id}}</div>
     <div>{{user.url}}</div>
     <div>{{user.html_url}}</div>
+
+    <div *ngIf="repos">
+        <h2>Repos: {{repos.length}}</h2>
+        <div *ngFor="let repo of repos">
+            {{repo.name}}
+        </div>
+    </div>
+
+    <div *ngIf="followers">
+        <h2>Followers: {{followers.length}}</h2>
+        <div *ngFor="let follower of followers">
+            {{follower.login}}
+        </div>
+    </div>
 </div>

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { User } from './interfaces/User';
+import { Repo } from './interfaces/Repo';
 
 @Injectable({
       providedIn: 'root'
@@ -23,12 +24,12 @@ export class DataService {
     return this.http.get<User>(this.getUsersUrl + '/' + userLogin);
   }
 
-  getUserRepositories(userLogin?: string): Observable<User>{
-    return this.http.get<User>(this.getUsersUrl + '/'  + userLogin + '/repos');
+  getUserFollowers(userLogin?: string): Observable<User[]>{
+    return this.http.get<User[]>(this.getUsersUrl + '/'  + userLogin + '/followers');
   }
 
-  getUserFollowers(userLogin?: string): Observable<User>{
-    return this.http.get<User>(this.getUsersUrl + '/'  + userLogin + '/followers');
+  getUserRepositories(userLogin?: string): Observable<Repo[]>{
+    return this.http.get<Repo[]>(this.getUsersUrl + '/'  + userLogin + '/repos');
   }
 
   getSelectedUser(): User|undefined {
