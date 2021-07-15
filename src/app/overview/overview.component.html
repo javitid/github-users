@@ -1,9 +1,12 @@
 <app-header></app-header>
 
 <h2>Search user: </h2>
-<app-search-bar class="search-block"></app-search-bar>
+<div class="search-block">
+    <label for="search">User name: </label>
+    <input id="search" type="text" [formControl]="search">
+</div>
 
 <h2>List of users: </h2>
-<div *ngFor="let user of users"> 
+<ng-container *ngFor="let user of users">
     <app-user [user]="user"></app-user>
-</div>
+</ng-container>

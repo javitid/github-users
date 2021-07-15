@@ -2,21 +2,24 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import { UsersSearch } from './interfaces/UsersSearch';
 import { User } from './interfaces/User';
 import { Repo } from './interfaces/Repo';
 
 @Injectable({
-      providedIn: 'root'
+  providedIn: 'root'
 })
 export class DataService {
   selectedUser?: User;
-  users: User[] = [];
+  users?: User[];
+  getSearchUrl: string = "https://api.github.com/search/users?q=";
   getUsersUrl: string = "https://api.github.com/users";
   
   constructor(private http: HttpClient) { }
 
-  getUsers(): Observable<User[]>{
-    return this.http.get<User[]>(this.getUsersUrl);
+  retrieveUsers(query: string): Observable<UsersSearch>{
+    const usersRetrieved = this.http.get<UsersSearch>(this.getSearchUrl + query);
+    return usersRetrieved;
   }
 
   //TODO: Add cache by login to avoid extra requests to retrieve data of the same user
