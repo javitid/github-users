@@ -16,7 +16,7 @@ const routes: Routes = [
         component: OverviewComponent,
       },
       {
-        path: 'details',
+        path: 'details/:login',
         component: DetailsComponent,
       }
     ],

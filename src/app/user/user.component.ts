@@ -23,6 +23,6 @@ export class UserComponent {
     this._dataService.setSelectedUser(user);
 
     // Navigate to user details screen
-    this._router.navigateByUrl('details');
+    this._router.navigateByUrl('details/' + user.login);
   }
 }
