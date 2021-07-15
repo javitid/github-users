@@ -5,8 +5,7 @@ import { DataService } from '../data.service';
 import { User } from '../interfaces/User';
 import { UsersSearch } from '../interfaces/UsersSearch';
 
-import { interval } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-overview',
@@ -23,12 +22,12 @@ export class OverviewComponent implements OnInit {
 
   ngOnInit() {
     this.users = this._dataService.users;
-    this.search.valueChanges.subscribe((query: string) => {
-      interval(1000).pipe(take(1)).subscribe(x => {
-        this._dataService.retrieveUsers(query).subscribe((usersSearch: UsersSearch) => {
-          this.users = usersSearch.items;
-        });
+    this.search.valueChanges
+    .pipe(debounceTime(300))
+    .subscribe((query: string) => {
+      this._dataService.retrieveUsers(query).subscribe((usersSearch: UsersSearch) => {
+        this.users = usersSearch.items;
       });
-    });
+    })
   }
 }
