@@ -24,7 +24,7 @@ export class OverviewComponent implements OnInit {
   ngOnInit() {
     this.users = this._dataService.users;
     this.search.valueChanges.subscribe((query: string) => {
-      interval(500).pipe(take(1)).subscribe(x => {
+      interval(1000).pipe(take(1)).subscribe(x => {
         this._dataService.retrieveUsers(query).subscribe((usersSearch: UsersSearch) => {
           this.users = usersSearch.items;
         });
