@@ -1,18 +1,16 @@
 <div *ngIf="user">
     <div><img src="{{user.avatar_url}}" alt="Avatar" class="icon"></div>
-    <div>{{user.id}}</div>
-    <div>{{user.login}}</div>
-    <div>{{user.node_id}}</div>
-    <div>{{user.url}}</div>
-    <div>{{user.html_url}}</div>
+    <div>{{user.login}} - {{user.id}} - {{user.node_id}}</div>
+    <div><a href="{{user.url}}" target="blank">{{user.url}}</a></div>
+    <div><a href="{{user.html_url}}" target="blank">{{user.html_url}}</a></div>
 
     <div *ngIf="repos">
         <h2>Repos: {{repos.length}}</h2>
         <table>
             <tr class="title">
+                <td>name</td>
                 <td>id</td>
                 <td>node_id</td>
-                <td>name</td>
                 <td>full_name</td>
                 <td>private</td>
                 <td>owner</td>
@@ -21,13 +19,13 @@
                 <td>fork</td>
             </tr>
             <tr *ngFor="let repo of repos">
+                <td>{{repo.name}}</td>
                 <td>{{repo.id}}</td>
                 <td>{{repo.node_id}}</td>
-                <td>{{repo.name}}</td>
                 <td>{{repo.full_name}}</td>
                 <td>{{repo.private}}</td>
                 <td>{{repo.owner.login}}</td>
-                <td>{{repo.html_url}}</td>
+                <td><a href="{{repo.html_url}}" target="blank">{{repo.html_url}}</a></td>
                 <td>{{repo.description}}</td>
                 <td>{{repo.fork}}</td>
             </tr>
@@ -38,18 +36,18 @@
         <h2>Followers: {{followers.length}}</h2>
         <table>
             <tr class="title">
+                <td>login</td>
                 <td>id</td>
                 <td>node_id</td>
-                <td>login</td>
                 <td>url</td>
                 <td>html_url</td>
             </tr>
             <tr *ngFor="let follower of followers">
+                <td>{{follower.login}}</td>
                 <td>{{follower.id}}</td>
                 <td>{{follower.node_id}}</td>
-                <td>{{follower.login}}</td>
-                <td>{{follower.url}}</td>
-                <td>{{follower.html_url}}</td>
+                <td><a href="{{follower.url}}" target="blank">{{follower.url}}</a></td>
+                <td><a href="{{follower.html_url}}" target="blank">{{follower.html_url}}</a></td>
             </tr>
         </table>
     </div>
