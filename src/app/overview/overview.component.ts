@@ -25,9 +25,11 @@ export class OverviewComponent implements OnInit {
     this.search.valueChanges
     .pipe(debounceTime(300))
     .subscribe((query: string) => {
-      this._dataService.retrieveUsers(query).subscribe((usersSearch: UsersSearch) => {
-        this.users = usersSearch.items;
-      });
+      if (query != '') {
+        this._dataService.retrieveUsers(query).subscribe((usersSearch: UsersSearch) => {
+          this.users = usersSearch.items;
+        });
+      }
     })
   }
 }
