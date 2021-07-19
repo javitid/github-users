@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -9,6 +9,9 @@ import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './user/user.component';
 import { OverviewComponent } from './overview/overview.component';
 import { DetailsComponent } from './details/details.component';
+import { ErrorComponent } from './error/error.component';
+
+import { GlobalErrorHandlerService } from './global-error-handler.service'
 
 @NgModule({
   declarations: [
@@ -16,7 +19,8 @@ import { DetailsComponent } from './details/details.component';
     HeaderComponent,
     UserComponent,
     OverviewComponent,
-    DetailsComponent
+    DetailsComponent,
+    ErrorComponent
   ],
   imports: [
     AppRoutingModule,
@@ -24,7 +28,9 @@ import { DetailsComponent } from './details/details.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {provide: ErrorHandler, useClass: GlobalErrorHandlerService}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
