@@ -11,7 +11,10 @@ const routes: Routes = [
     path: '',
     component: AppComponent,
     children: [
-      {path: '', pathMatch: 'full', redirectTo: 'overview'},
+      {
+        path: '',
+        component: OverviewComponent,
+      },
       {
         path: 'overview',
         component: OverviewComponent,
