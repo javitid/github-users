@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,6 +12,7 @@ import { DetailsComponent } from './details/details.component';
 import { ErrorComponent } from './error/error.component';
 
 import { GlobalErrorHandlerService } from './global-error-handler.service'
+import { HttpErrorInterceptor } from './interceptors/http-error-interceptor'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { GlobalErrorHandlerService } from './global-error-handler.service'
     ReactiveFormsModule
   ],
   providers: [
-    {provide: ErrorHandler, useClass: GlobalErrorHandlerService}
+    {provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true},
+    {provide: ErrorHandler, useClass: GlobalErrorHandlerService},
   ],
   bootstrap: [AppComponent]
 })
