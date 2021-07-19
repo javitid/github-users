@@ -9,7 +9,7 @@ import { DataService } from '../data.service';
 export class HttpErrorInterceptor implements HttpInterceptor {
     constructor(
         private _dataService: DataService,
-      ) { }
+    ) { }
 
     public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(
