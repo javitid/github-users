@@ -8,15 +8,49 @@
 
     <div *ngIf="repos">
         <h2>Repos: {{repos.length}}</h2>
-        <div *ngFor="let repo of repos">
-            {{repo.name}}
-        </div>
+        <table>
+            <tr class="title">
+                <td>id</td>
+                <td>node_id</td>
+                <td>name</td>
+                <td>full_name</td>
+                <td>private</td>
+                <td>owner</td>
+                <td>html_url</td>
+                <td>description</td>
+                <td>fork</td>
+            </tr>
+            <tr *ngFor="let repo of repos">
+                <td>{{repo.id}}</td>
+                <td>{{repo.node_id}}</td>
+                <td>{{repo.name}}</td>
+                <td>{{repo.full_name}}</td>
+                <td>{{repo.private}}</td>
+                <td>{{repo.owner.login}}</td>
+                <td>{{repo.html_url}}</td>
+                <td>{{repo.description}}</td>
+                <td>{{repo.fork}}</td>
+            </tr>
+        </table>
     </div>
 
     <div *ngIf="followers">
         <h2>Followers: {{followers.length}}</h2>
-        <div *ngFor="let follower of followers">
-            {{follower.login}}
-        </div>
+        <table>
+            <tr class="title">
+                <td>id</td>
+                <td>node_id</td>
+                <td>login</td>
+                <td>url</td>
+                <td>html_url</td>
+            </tr>
+            <tr *ngFor="let follower of followers">
+                <td>{{follower.id}}</td>
+                <td>{{follower.node_id}}</td>
+                <td>{{follower.login}}</td>
+                <td>{{follower.url}}</td>
+                <td>{{follower.html_url}}</td>
+            </tr>
+        </table>
     </div>
 </div>
