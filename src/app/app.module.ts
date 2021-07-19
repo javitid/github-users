@@ -2,6 +2,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,15 +18,16 @@ import { HttpErrorInterceptor } from './interceptors/http-error-interceptor'
 @NgModule({
   declarations: [
     AppComponent,
+    DetailsComponent,
+    ErrorComponent,
     HeaderComponent,
     UserComponent,
-    OverviewComponent,
-    DetailsComponent,
-    ErrorComponent
+    OverviewComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule
   ],
