@@ -13,14 +13,17 @@ const routes: Routes = [
       {
         path: 'overview',
         component: OverviewComponent,
+        data: {transitionName: 'backward'},
       },
       {
         path: 'details/:login',
         component: DetailsComponent,
+        data: {transitionName: 'forward'},
       },
       {
         path: 'error',
         component: ErrorComponent,
+        data: {transitionName: 'forward'},
       },
     ],
   },
