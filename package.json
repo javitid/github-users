@@ -1,5 +1,5 @@
 {
-  "name": "nuvolar",
+  "name": "github-users",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "gh-pages -d dist/nuvolar"
+    "deploy": "gh-pages -d dist/github-users"
   },
   "private": true,
   "dependencies": {

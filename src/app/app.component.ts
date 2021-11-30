@@ -10,7 +10,7 @@ import { routerTransition } from './animations';
   animations: [routerTransition]
 })
 export class AppComponent {
-  title = 'nuvolar';
+  title = 'github-users';
 
   private previousPath: string = ''
 
